@@ -4,6 +4,18 @@ Newest entries at the top. Every entry: what I did, what went wrong, how I fixed
 
 ---
 
+## 2026-11-17: Phase 1 started: running the model locally
+
+**Did**
+- Checked my PC: RTX 3060 with **12 GB VRAM**, 16 GB RAM, i5-12400F, 106 GB free disk. That's enough to run 8B models fully on the GPU.
+- Picked **Qwen3 8B** (Apache 2.0 licence) running in **Ollama**.
+- Wrote the [Phase 1 lesson](docs/phase-1-local-model.md) and my first assistant, [`study-buddy`](assistants/study-buddy/Modelfile): the same base model with a custom system prompt.
+
+**Learned**
+- 12 GB of VRAM may also be enough to fine-tune a small model at home in Phase 3 (QLoRA), instead of paying for a cloud GPU.
+
+---
+
 ## 2026-11-17: Repo and task board on GitHub
 
 **Did**

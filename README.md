@@ -20,8 +20,8 @@ flowchart LR
 
 | Phase | What | Status |
 |---|---|---|
-| 0 | Accounts, tools, safety (billing alarm, MFA) | 🟡 in progress |
-| 1 | Run the model on my own PC | ⬜ |
+| 0 | Accounts, tools, safety (billing alarm, MFA) | 🟡 nearly done (MFA + spend limit left) |
+| 1 | Run the model on my own PC | 🟡 in progress |
 | 2 | Tiny API with multiple assistants | ⬜ |
 | 3 | Personalise: prompts → documents (RAG) → fine-tuning (LoRA) | ⬜ |
 | 4 | Logins and per-person access (Cognito) | ⬜ |
@@ -31,4 +31,4 @@ flowchart LR
 | 8 | Web app for every device | ⬜ |
 | 9 | Monitoring, logs, cost control | ⬜ |
 
-Full plan: [docs/ROADMAP.md](docs/ROADMAP.md) · Current step: [docs/phase-0-setup.md](docs/phase-0-setup.md) · Task board: [GitHub Project](https://github.com/users/subhan-sajid/projects/1) · Build log: [LOG.md](LOG.md)
+Full plan: [docs/ROADMAP.md](docs/ROADMAP.md) · Current step: [docs/phase-1-local-model.md](docs/phase-1-local-model.md) · Task board: [GitHub Project](https://github.com/users/subhan-sajid/projects/1) · Build log: [LOG.md](LOG.md)
