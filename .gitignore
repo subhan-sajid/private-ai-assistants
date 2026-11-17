@@ -1,0 +1,25 @@
+# Secrets: never commit these
+.env
+*.pem
+*.key
+credentials*
+.aws/
+
+# Terraform: state can contain secrets, and providers are big downloads
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!example.tfvars
+crash.log
+
+# Python
+__pycache__/
+.venv/
+*.pyc
+
+# Model files are many GB: they live in S3 / Hugging Face, not git
+*.gguf
+*.safetensors
+*.bin
+models/
