@@ -31,10 +31,23 @@ Newest entries at the top. Every entry: what I did, what went wrong, how I fixed
 
 **Mistake / problem**
 - `aws login` failed three times with `AccessDeniedException ... CreateOAuth2Token: The refresh token has expired (TOKEN_EXPIRED)`.
-- Ruled out: an old saved login (none existed) and my PC clock (only 45 seconds off AWS).
+- Ruled out: an old saved login (none existed). `--remote` mode failed the same way.
+
+**Cause**
+- My PC clock. `w32tm /query /status` showed Windows had **never** synced its time (`Source: Local CMOS Clock`, `not synchronized`) and was about 45 seconds off. The AWS login code is only valid for a very short time, so even a small clock error makes AWS reject it. This is a known problem: [aws/aws-cli#10330](https://github.com/aws/aws-cli/issues/10330).
 
 **Fix**
-- _In progress._
+- Settings → Time & language → Date & time → turn on *Set time automatically* → **Sync now**. Then run `aws login` again. ✅ It worked: `aws sts get-caller-identity --profile ai` now returns my project's account.
+
+**Then: installed the Agent Toolkit for AWS**
+- `aws configure agent-toolkit --yes --region us-east-1 --profile ai` installed 25 AWS skills for Claude Code and added the **AWS MCP server** (lets the AI assistant read AWS docs and work with my AWS project). The toolkit service only runs in us-east-1; my own resources still go in eu-north-1.
+- Pointed the MCP server at my `ai` profile (`AWS_MCP_PROXY_PROFILES=ai`), otherwise it looks for a `default` profile that doesn't exist.
+- Checked it works: `aws agent-toolkit list-available-skills` lists 126 skills.
+- Added AWS's rules for the new AWS experience to a new [CLAUDE.md](CLAUDE.md). Notable limit: everything must be created in **eu-north-1**, my project's only Region.
+
+**Learned**
+- "Expired" errors in login systems often mean *your clock is wrong*, not that you were too slow. Check time sync first.
+- An *MCP server* is a plug-in that gives an AI assistant new tools; *skills* are instruction packs it loads when needed.
 
 ---
 
