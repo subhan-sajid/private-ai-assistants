@@ -4,6 +4,24 @@ Newest entries at the top. Every entry: what I did, what went wrong, how I fixed
 
 ---
 
+## 2026-11-17: Repo and task board on GitHub
+
+**Did**
+- Logged the GitHub CLI in (`gh auth login --scopes project`).
+- Made the first commit and created this public repo with `gh repo create --public --source . --push`.
+- Created a public GitHub Project board with one issue per phase (#1–#10). Phase 0 is *In Progress* and labelled `blocked` until AWS sign-in works.
+
+**Mistake**
+- When creating the issues from a script, line breaks were written as `\n` and dollar signs as `\$`, so the issue text showed those characters instead of new lines.
+
+**Fix**
+- Rewrote each issue body with real line breaks (`printf '%b'`) and removed the stray backslashes.
+
+**Learned**
+- Text inside a shell script isn't always passed through the way it looks. Check the result on GitHub after any bulk change.
+
+---
+
 ## 2026-11-17: Connecting the AWS CLI (Agent Toolkit for AWS setup)
 
 **Did**

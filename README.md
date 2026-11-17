@@ -31,4 +31,4 @@ flowchart LR
 | 8 | Web app for every device | ⬜ |
 | 9 | Monitoring, logs, cost control | ⬜ |
 
-Full plan: [docs/ROADMAP.md](docs/ROADMAP.md) · Current step: [docs/phase-0-setup.md](docs/phase-0-setup.md)
+Full plan: [docs/ROADMAP.md](docs/ROADMAP.md) · Current step: [docs/phase-0-setup.md](docs/phase-0-setup.md) · Task board: [GitHub Project](https://github.com/users/subhan-sajid/projects/1) · Build log: [LOG.md](LOG.md)
